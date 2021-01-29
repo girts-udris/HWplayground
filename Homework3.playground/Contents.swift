@@ -9,16 +9,18 @@ import UIKit
  print("Amount of income after \(period) years will be \(profit) Eur. My total deposit will be \(deposit) Eur !")
  */
 
-var depositInitial = 500000.00
+var depositInitial = 500_000
 var period = 5
-let rate  = 0.05
+let rate  = 5
+var profit = 0
 
 
 for _ in 1...period{
-    print("\(depositInitial) * rate = \(depositInitial * Double(rate))")
-    
+        let currentProfit = depositInitial * rate / 100
+    profit += currentProfit
+    depositInitial += currentProfit
 }
-
+print ( "Amount of income after \(period) years will be \(profit) Eur. My total deposit will be \(depositInitial) Eur !")
 
 
 /*
@@ -28,9 +30,9 @@ for _ in 1...period{
  */
 var intArray : Set = [1,4,5,2,3,56,34,12]
 
-for number in intArray {
-    if number % 2 == 0 {
-        print(number)}
+for evenNumber in intArray {
+    if evenNumber % 2 == 0 {
+        print("My even numbers are: \(evenNumber)")}
 }
 
 
@@ -40,6 +42,22 @@ for number in intArray {
  Inside the for loop create randomNumber for the random Int calculation. Calculate and print("Number 5 will be after \(counter) shuffles"). Don't forget to make a break inside the if statement.
  */
 
+if counter in 1...10{
+    let randomNumber = Int.random (in: 1...10)
+    if randomNumber == 5 {
+        print("Number 5 will be after \(counter) shuffles")
+    }
+}
+
+let numberToCheck = 5
+var shufflesCounter = 0
+
+while true {
+    let randomNumber = Int.random(in: 1...10)
+    shufflesCounter += 1
+    
+}
+
 /*
  Exercise 4
  A bug is climbing to a 10-meter electric post. During the day, bug can climb two meters, during the night she slides down to 1 meter. Determine with the help of the cycle how many days bug will climb on the top of the post. Think about which loop to use in which situation. print("bug will spend \(numberOfDays)) to reach top of the post")
@@ -47,15 +65,22 @@ for number in intArray {
 
 
 // Could not find how to print number of cycles.
-var distance = 1
+var distance = 0
+var numberOfDays = 0
+var isDay = true
 
-while true {
-    print("Distance is now : \(distance)")
-    distance += 2
-    distance -= 1
-    if distance == 11{
-        break
+while distance != 10 {
+    
+    if isDay {
+        distance += 2
+        numberOfDays += 1
+        isDay = false }
+            else {
+                distance -= 1
+                isDay = true
+            }
+        }
+
         
+print(numberOfDays)
         
-    }
-}
