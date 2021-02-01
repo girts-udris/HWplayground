@@ -13,7 +13,7 @@ import UIKit
  Girls against Washington Wizards scored - 117:112
  Girls against Washington Wizards scored - 107:122
  */
-var myTeam = "Girls"
+var myTeam = "Boys"
 var resultsOfGames = ["Brooklyn": "22 : 44",
                       "Dallas": "43 : 11",
                       "Washington": "56 : 424"]
@@ -61,21 +61,22 @@ isEvenNumber ()
 
 
 
-func createArray(_ from : Int, _ to: Int) ->Int {
-    var array: [Int] = []
-    for number in to {
-        if from >= 1 && from <= 100 {
-            array.append( +1 )
+func createArray(start : Int, end: Int) -> [Int]{
+    var array = [Int]()
+    for _ in start...end {
+        if start >= 1 && start <= 100 {
+            array.append(array.last!, +1 )
         }
         
-    
-        
     }
+    print(array)
     return array
     
-    }
+    
+}
 
-createArray(1, 100)
+createArray(start: 1, end: 100)
+
 
 /*
  Exercise 5
